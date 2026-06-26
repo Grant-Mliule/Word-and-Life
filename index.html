@@ -161,13 +161,13 @@
       z-index: 1;
     }
     
-    /* ===== FIXED: Children image overlay with 'contain' ===== */
+    /* Children image overlay with 'contain' */
     .hero-children-overlay {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain;  /* ← FIXED: Shows entire image without cropping */
+      object-fit: contain;
       opacity: 0.15;
       z-index: 1;
       pointer-events: none;
@@ -280,7 +280,7 @@
       gap: 2rem !important;
     }
     
-    /* Responsive */
+    /* ===== FIXED: Mobile Responsive ===== */
     @media (max-width: 768px) {
       .carousel-slides {
         height: 300px;
@@ -309,25 +309,87 @@
         width: 10px;
         height: 10px;
       }
+      
+      /* FIX: More padding at top to clear the header */
       .hero {
         min-height: 70vh;
-        padding: 4rem 1.5rem 2.5rem;
+        padding-top: 90px !important;
+        padding-bottom: 2.5rem;
       }
+      
       .hero h1 {
         font-size: clamp(1.6rem, 5vw, 2.4rem) !important;
       }
+      
       .hero-children-overlay {
         opacity: 0.1;
       }
+      
+      /* FIX: Make chip text smaller on mobile */
+      .chip.w {
+        font-size: 0.6rem !important;
+        padding: 0.2rem 0.6rem !important;
+        white-space: nowrap !important;
+        display: inline-block !important;
+      }
+      
+      /* FIX: Stats grid on tablet */
+      .stats {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.5rem !important;
+      }
     }
-    
+
     @media (max-width: 480px) {
       .carousel-slides {
         height: 220px;
       }
+      
+      /* FIX: Even more padding for small phones */
       .hero {
         min-height: 60vh;
-        padding: 3rem 1.5rem 2rem;
+        padding-top: 80px !important;
+        padding-bottom: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      
+      /* FIX: Even smaller chip on very small screens */
+      .chip.w {
+        font-size: 0.5rem !important;
+        padding: 0.15rem 0.4rem !important;
+        white-space: nowrap !important;
+      }
+      
+      /* FIX: Stats grid on mobile */
+      .stats {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.4rem !important;
+      }
+      
+      .stat {
+        padding: 0.5rem !important;
+      }
+      
+      .sn {
+        font-size: 1.2rem !important;
+      }
+      
+      .sl {
+        font-size: 0.5rem !important;
+      }
+      
+      .hero h1 {
+        font-size: 1.3rem !important;
+      }
+      
+      .hs {
+        font-size: 0.8rem !important;
+      }
+      
+      .hb2 .btn {
+        font-size: 0.7rem !important;
+        padding: 0.4rem 0.8rem !important;
       }
     }
   </style>
@@ -374,13 +436,16 @@
 
 <button class="wa" onclick="window.open('https://wa.me/265999089074','_blank')">💬</button>
 
-<!-- ===== HERO SECTION WITH CONTAIN FIX ===== -->
+<!-- ===== HERO SECTION ===== -->
 <section class="hero">
   <!-- Full background image -->
   <img src="images/hero-bg.jpeg" alt="Background" class="hero-bg-image" onerror="this.style.display='none'">
   
   <!-- Dark overlay for contrast -->
   <div class="hero-overlay"></div>
+  
+  <!-- Children image overlay -->
+  <img src="images/crowd-children.jpeg" alt="Children" class="hero-children-overlay" onerror="this.style.display='none'">
   
   <div class="hbg">✟</div>
   
